@@ -1,0 +1,73 @@
+trigger: none
+#- master
+pr: none
+
+jobs:
+- job: 
+  displayName: "Build Azure Test Evnironment"
+  pool:
+    vmImage: 'windows-2019'
+
+  steps:
+  - task: AzurePowerShell@4
+    displayName: "Run Pester Unit Tests"
+    inputs:
+      azureSubscription: 'PAYG-Az202006(e8c742ce-a16c-4c18-b61e-57965b166732)'
+      ScriptType: 'InlineScript'
+      Inline: |        
+        Set-Location "$(Build.SourcesDirectory)\PScode\Modules"
+        Invoke-Pester -EnableExit
+      azurePowerShellVersion: 'LatestVersion'
+  - task: AzurePowerShell@4
+    displayName: "Deploy Virtual Network"
+    inputs:
+      azureSubscription: 'PAYG-Az202006(e8c742ce-a16c-4c18-b61e-57965b166732)'
+      ScriptType: 'InlineScript'
+      Inline: |        
+        Set-Location "$(Build.SourcesDirectory)\PScode"
+        .\CreateAzVNet.ps1      
+      azurePowerShellVersion: 'LatestVersion'
+  - task: AzurePowerShell@4
+    displayName: "Provision Storage Account"
+    inputs:
+      azureSubscription: 'PAYG-Az202006(e8c742ce-a16c-4c18-b61e-57965b166732)'
+      ScriptType: 'InlineScript'
+      Inline: |        
+        Set-Location "$(Build.SourcesDirectory)\PScode"
+        .\CreateAzStor.ps1      
+      azurePowerShellVersion: 'LatestVersion'
+  - task: AzurePowerShell@4
+    displayName: "Deploy Virtual Machine"
+    inputs:
+      azureSubscription: 'PAYG-Az202006(e8c742ce-a16c-4c18-b61e-57965b166732)'
+      ScriptType: 'InlineScript'
+      Inline: |        
+        Set-Location "$(Build.SourcesDirectory)\PScode"
+        .\DeployAzVM.ps1      
+      azurePowerShellVersion: 'LatestVersion'
+  - task: AzurePowerShell@4
+    displayName: "Apply Desire State Configuration"
+    inputs:
+      azureSubscription: 'PAYG-Az202006(e8c742ce-a16c-4c18-b61e-57965b166732)'
+      ScriptType: 'InlineScript'
+      Inline: |
+        Set-Location "$(Build.SourcesDirectory)\PScode"
+        .\ApplyDSC.ps1      
+      azurePowerShellVersion: 'LatestVersion'
+  - task: AzurePowerShell@4
+    displayName: "Run Infrastructure Test"
+    inputs:
+      azureSubscription: 'PAYG-Az202006(e8c742ce-a16c-4c18-b61e-57965b166732)'
+      ScriptType: 'InlineScript'
+      Inline: |        
+        Set-Location "$(Build.SourcesDirectory)\Tests"
+        Invoke-Pester -Script '.\Start-AzInfra.Tests.ps1'-Tag 'VNet','Stor','VM'
+      azurePowerShellVersion: 'LatestVersion'
+  - task: AzurePowerShell@4
+    inputs:
+      azureSubscription: 'PAYG-Az202006(e8c742ce-a16c-4c18-b61e-57965b166732)'
+      ScriptType: 'InlineScript'
+      Inline: |        
+        Set-Location "$(Build.SourcesDirectory)"
+        .\Get-MyAzEnv.ps1
+      azurePowerShellVersion: 'LatestVersion'
