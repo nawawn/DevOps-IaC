@@ -80,8 +80,8 @@ Function Invoke-Dsc{
 }
 
 Measure-Command -Expression {
-    Invoke-Dsc -VmConfigFile '..\Config\CoreVm-Config.psd1'  `
-        -StorConfigFile '..\Config\AzStor-Config.psd1'       `
-        -DscFile '..\DSC\IIS-Dsc.ps1'                           `
+    Invoke-Dsc -VmConfigFile '..\Config\CoreVm-Config.psd1' `
+        -StorConfigFile '..\Config\AzStor-Config.psd1'      `
+        -DscFile '..\DSC\IIS-Dsc.ps1'                       `
         -ConfigurationName 'WebServer' -Verbose
 }
