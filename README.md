@@ -9,7 +9,7 @@ The codes in this repo are purely PowerShell script, except for the azure-pipeli
 * Virtual Machine 
 
 ### Folder Structure
-__PScode__ This folder contains all the PowerShell scripts that create the required component in Azure IaaS platform. The subfolder 'Modules' includes all the scripts composed of functions which are then called and used by the main scripts. Pester scripts to test each functions are also included in this subfolder.
+__PScode__ This folder contains all the PowerShell scripts that create the required component in Azure IaaS platform. The subfolder **'Modules'** includes all the scripts composed of functions which are then called and used by the main scripts. Pester scripts to test each functions are also included in this subfolder.
 
 __Config__ This folder contains all configuration data in psd1 file format for the required azure components. These are consumed by the main scripts in PScode folder.
 
