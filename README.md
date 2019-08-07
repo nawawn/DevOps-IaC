@@ -3,10 +3,10 @@ Infrastructure as Code Repo for Azure DevOps Pipeline
 
 ### What it does 
 The codes in this repo are purely PowerShell script, except for the azure-pipeline ymal file which obviously is the pipeline ymal file for Azure Devops pipeline. The scripts will create:
-**Azure Virtual Network 
-**Site-to-Site VPN Connection 
-**Storage Account
-**Virtual Machine 
+*Azure Virtual Network 
+*Site-to-Site VPN Connection 
+*Storage Account
+*Virtual Machine 
 
 ### Folder Structure
 __PScode__ This folder contains all the PowerShell scripts that create the required component in Azure IaaS platform. The subfolder 'Modules' includes all the scripts composed of functions which are then called and used by the main scripts. Pester scripts to test each functions are also included in this subfolder.
