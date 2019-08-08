@@ -61,7 +61,7 @@ jobs:
       ScriptType: 'InlineScript'
       Inline: |        
         Set-Location "$(Build.SourcesDirectory)\Tests"
-        Invoke-Pester -Script '.\Start-AzInfra.Tests.ps1'-Tag 'VNet','Stor','VM'
+        Invoke-Pester -Script '.\Infrastructure.Tests.ps1'-Tag 'VNet','Stor','VM'
       azurePowerShellVersion: 'LatestVersion'
   - task: AzurePowerShell@4
     inputs:
