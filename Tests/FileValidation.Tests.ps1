@@ -35,14 +35,7 @@ $DirStruct = @(
     '.\Tests\Infrastructure.Tests.ps1'    
 )
 
-Describe "Directory Structure Validation"{
-    BeforeAll{
-        $Script:here = Get-Location
-        Set-Location = "..\"
-    }
-    AfterAll{
-        Set-Location $Script:here
-    }
+Describe "Directory Structure Validation"{   
     Foreach ($item in $DirStruct){
         It "Should exist: $item" {
             Test-Path $item | Should be $true
