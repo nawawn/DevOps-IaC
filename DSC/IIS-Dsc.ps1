@@ -8,12 +8,11 @@
         </style>
     </head>
     <body>
-    <div class="center" sytle="background-color:lightgray;">
+    <div class="center" style="background-color:lightgray;">
         <h3>A Journey to One Click of a Button</h3><hr />
         <p>Or is it rather two clicks with <button type="button">Queue</button> and <button type="button"> Run </button></p>
         <p>Or no click at all (using CI pipeline)</p>
-        <br /><br /><br />
-        <p> See Infrastructure build report here.</p>
+        <br /><br /><br /><br /><br />
     </div>
     </body>
 </html>
