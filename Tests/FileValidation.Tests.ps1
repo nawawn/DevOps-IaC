@@ -1,6 +1,3 @@
-Param(
-    [String]$Path = "..\"
-)
 $DirStruct = @(
     '.\Config',
     '.\DSC',
@@ -41,7 +38,7 @@ $DirStruct = @(
 Describe "Directory Structure Validation"{
     BeforeAll{
         $Script:here = Get-Location
-        Set-Location = $Path
+        Set-Location = "..\"
     }
     AfterAll{
         Set-Location $Script:here
