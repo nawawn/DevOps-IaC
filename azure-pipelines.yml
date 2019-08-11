@@ -10,11 +10,15 @@ jobs:
 
   steps:
   - task: PowerShell@2
-    inputs:
-      filePath: '.\Tests\FileValidation.Tests.ps1'
-      workingDirectory: '$(Build.SourcesDirectory)'
-  - task: AzurePowerShell@4
     displayName: "Run File Validation Tests"
+    inputs:
+      failOnStderr: true
+      errorActionPreference: 'stop'
+      workingDirectory: '$(Build.SourcesDirectory)'
+      targetType: inline
+      script: Invoke-Pester -Script '.\Tests\FileValidation.Tests.ps1' -EnableExit
+  - task: AzurePowerShell@4
+    displayName: "Run File Validation Tests2"
     inputs:
       azureSubscription: 'PAYG-Az202006(e8c742ce-a16c-4c18-b61e-57965b166732)'
       ScriptType: 'InlineScript'
