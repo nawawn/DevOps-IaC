@@ -16,7 +16,7 @@ jobs:
       ScriptType: 'InlineScript'
       Inline: |        
         Set-Location "$(Build.SourcesDirectory)\Tests"
-        Invoke-Pester -Script '.\FileValidation.Tests.ps1' -EnableExit
+        Invoke-Pester -Script '.\FileValidation.Tests.ps1' -Path $(Build.SourcesDirectory) -EnableExit
       azurePowerShellVersion: 'LatestVersion'
   - task: AzurePowerShell@4
     displayName: "Run Pester Unit Tests"
