@@ -15,8 +15,8 @@ jobs:
       azureSubscription: 'PAYG-Az202006(e8c742ce-a16c-4c18-b61e-57965b166732)'
       ScriptType: 'InlineScript'
       Inline: |        
-        Set-Location "$(Build.SourcesDirectory)\Tests"
-        Invoke-Pester -Script '.\FileValidation.Tests.ps1' -Path $(Build.SourcesDirectory) -EnableExit
+        Set-Location "$(Build.SourcesDirectory)"
+        Invoke-Pester -Script '.Tests\FileValidation.Tests.ps1' -EnableExit
       azurePowerShellVersion: 'LatestVersion'
   - task: AzurePowerShell@4
     displayName: "Run Pester Unit Tests"
