@@ -1,3 +1,6 @@
+Param(
+    [String]$Path = "..\"
+)
 $DirStruct = @(
     '.\Config',
     '.\DSC',
@@ -36,6 +39,13 @@ $DirStruct = @(
 )
 
 Describe "Directory Structure Validation"{
+    BeforeAll{
+        $Script:here = Get-Location
+        Set-Location = $Path
+    }
+    AfterAll{
+        Set-Location $Script:here
+    }
     Foreach ($item in $DirStruct){
         It "Should exist: $item" {
             Test-Path $item | Should be $true
