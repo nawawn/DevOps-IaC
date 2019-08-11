@@ -40,7 +40,7 @@ __Teardown__ This folder cotains the script to teardown the whole infrastructure
 **CreateAzStor.ps1** - creates a storage account and provisions a blob container, an SMB file share and a table.  
 **DeployAzVM.ps1** - deploys virtual machine(s) on Azure IaaS platform within the Virtual Network created by Vnet creation script.  
 **ApplyDSC.ps1** - publishes the DSC script to blob container and apply the DSC on the virtual machine.  
-**FileValidation.Tests.ps1** - validates the script files and folders structure after checkout. 
-**Infrastructure.Tests.ps1** - runs Infrastructure test against the Azure environment after the build.
-**Teardown.ps1** - destroys the whole environment built. 
+**FileValidation.Tests.ps1** - validates the script files and folders structure after checkout.  
+**Infrastructure.Tests.ps1** - runs Infrastructure test against the Azure environment after the build.  
+**Teardown.ps1** - destroys the whole environment built.  
 
