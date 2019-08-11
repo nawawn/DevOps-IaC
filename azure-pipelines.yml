@@ -9,6 +9,10 @@ jobs:
     vmImage: 'windows-2019'
 
   steps:
+  - task: PowerShell@2
+    inputs:
+      filePath: '.\Tests\FileValidation.Tests.ps1'
+      workingDirectory: '$(Build.SourcesDirectory)'
   - task: AzurePowerShell@4
     displayName: "Run File Validation Tests"
     inputs:
