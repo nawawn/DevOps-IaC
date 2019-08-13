@@ -36,11 +36,12 @@ __Teardown__ This folder cotains the script to teardown the whole infrastructure
 
 ### Script explanation
 **CreateAzVnet.ps1** - creates an Azure Virtual Network with LAN-Subnet and Gateway subnet. Network Security Group is also created and attached to the LAN-Subnet as part of the process.  
-**DeployAzVpn.ps1** - sets up the site-to-site VPN connection to your On-Premises environment. This script can take up to 25 minutes.  
+**DeployAzVpn.ps1**  - sets up the site-to-site VPN connection to your On-Premises environment. This script can take up to 25 minutes.  
 **CreateAzStor.ps1** - creates a storage account and provisions a blob container, an SMB file share and a table.  
-**DeployAzVM.ps1** - deploys virtual machine(s) on Azure IaaS platform within the Virtual Network created by Vnet creation script.  
-**ApplyDSC.ps1** - publishes the DSC script to blob container and apply the DSC on the virtual machine.  
-**FileValidation.Tests.ps1** - validates the script files and folders structure after checkout. 
-**Infrastructure.Tests.ps1** - runs Infrastructure test against the Azure environment after the build.
-**Teardown.ps1** - destroys the whole environment built. 
+**DeployAzVM.ps1**   - deploys virtual machine(s) on Azure IaaS platform within the Virtual Network created by Vnet creation script.  
+**ApplyDSC.ps1**     - publishes the DSC script to blob container and apply the DSC on the virtual machine.  
+**Teardown.ps1**     - destroys the whole environment built by this process.  
+**FileValidation.Tests.ps1** - validates the script files and folders structure after checkout.  
+**Infrastructure.Tests.ps1** - runs Infrastructure test against the Azure environment after the build.  
+**azure-pipelines.yml** - This is the pipeline file for Azure DevOps pipeline. The whole pipeline task is written in yaml.  
 
