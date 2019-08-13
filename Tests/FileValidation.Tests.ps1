@@ -40,5 +40,10 @@ Describe "Directory Structure Validation"{
         It "Should exist: $item" {
             Test-Path $item | Should be $true
         }
+        If (-Not (Get-Item $item).PSIsContainer){
+            It "File should not be empty" {
+                (Get-Item $item).length | Should BeGreaterThan 1
+            }
+        }
     }    
 }
