@@ -5,7 +5,7 @@ Infrastructure as Code Repo for Azure DevOps Pipeline
 ![AzureNetworkDiagram](/images/DevOps-IaC.png)
 
 ### What it does 
-The codes in this repo are purely PowerShell script, except for the azure-pipeline ymal file which obviously is the pipeline ymal file for Azure Devops pipeline. The scripts will create:
+The codes in this repo are purely PowerShell script, except for the azure-pipeline ymal file which obviously is the pipeline yaml file for Azure Devops pipeline. The scripts will create:
 * Azure Virtual Network 
 * Site-to-Site VPN Connection 
 * Storage Account
