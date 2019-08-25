@@ -201,9 +201,8 @@ Describe 'Azure Virtual Machine' -Tag 'VM','All' {
             It "VM Admin: $($Config.VM.VMUser)"{
                 $VM.OSProfile.AdminUsername | Should Be $($Config.VM.VMUser)
             }
-            It "VM Extension: "{
-                $true | Should Not Be $false
-                #Set-ItResult -Inconclusive -Because "not done yet"
+            It "VM Extension should be present"{
+                $VM.Extensions.Id | Should Not Be $null
             }        
         }
     }
