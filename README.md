@@ -1,5 +1,5 @@
 ## DevOps-IaC  
-[![Build Status](https://naweducation.visualstudio.com/AzureIaaS/_apis/build/status/nawawn.DevOps-IaC?branchName=master)](https://naweducation.visualstudio.com/AzureIaaS/_build/latest?definitionId=3&branchName=master)  
+  
 Infrastructure as Code Repo for Azure DevOps Pipeline 
 
 ![AzureNetworkDiagram](/images/DevOps-IaC.png)
