@@ -20,7 +20,7 @@ jobs:
   - task: AzurePowerShell@4
     displayName: "Run Pester Unit Tests"
     inputs:
-      azureSubscription: 'PAYG-Az202006(e8c742ce-a16c-4c18-b61e-57965b166732)'
+      azureSubscription: '(your-subscription-id-here)'
       ScriptType: 'InlineScript'
       Inline: |        
         Set-Location "$(Build.SourcesDirectory)\PScode\Modules"
@@ -29,7 +29,7 @@ jobs:
   - task: AzurePowerShell@4
     displayName: "Deploy Virtual Network"
     inputs:
-      azureSubscription: 'PAYG-Az202006(e8c742ce-a16c-4c18-b61e-57965b166732)'
+      azureSubscription: '(your-subscription-id-here)'
       ScriptType: 'InlineScript'
       Inline: |        
         Set-Location "$(Build.SourcesDirectory)\PScode"
@@ -38,7 +38,7 @@ jobs:
   - task: AzurePowerShell@4
     displayName: "Provision Storage Account"
     inputs:
-      azureSubscription: 'PAYG-Az202006(e8c742ce-a16c-4c18-b61e-57965b166732)'
+      azureSubscription: '(your-subscription-id-here)'
       ScriptType: 'InlineScript'
       Inline: |        
         Set-Location "$(Build.SourcesDirectory)\PScode"
@@ -47,7 +47,7 @@ jobs:
   - task: AzurePowerShell@4
     displayName: "Deploy Virtual Machine"
     inputs:
-      azureSubscription: 'PAYG-Az202006(e8c742ce-a16c-4c18-b61e-57965b166732)'
+      azureSubscription: '(your-subscription-id-here)'
       ScriptType: 'InlineScript'
       Inline: |        
         Set-Location "$(Build.SourcesDirectory)\PScode"
@@ -56,7 +56,7 @@ jobs:
   - task: AzurePowerShell@4
     displayName: "Apply Desire State Configuration"
     inputs:
-      azureSubscription: 'PAYG-Az202006(e8c742ce-a16c-4c18-b61e-57965b166732)'
+      azureSubscription: '(your-subscription-id-here)'
       ScriptType: 'InlineScript'
       Inline: |
         Set-Location "$(Build.SourcesDirectory)\PScode"
@@ -65,7 +65,7 @@ jobs:
   - task: AzurePowerShell@4
     displayName: "Run Infrastructure Test"
     inputs:
-      azureSubscription: 'PAYG-Az202006(e8c742ce-a16c-4c18-b61e-57965b166732)'
+      azureSubscription: '(your-subscription-id-here)'
       ScriptType: 'InlineScript'
       Inline: |        
         Set-Location "$(Build.SourcesDirectory)\Tests"
@@ -73,7 +73,7 @@ jobs:
       azurePowerShellVersion: 'LatestVersion'
   - task: AzurePowerShell@4
     inputs:
-      azureSubscription: 'PAYG-Az202006(e8c742ce-a16c-4c18-b61e-57965b166732)'
+      azureSubscription: '(your-subscription-id-here)'
       ScriptType: 'InlineScript'
       Inline: |        
         Set-Location "$(Build.SourcesDirectory)"
